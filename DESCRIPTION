@@ -1,11 +1,17 @@
 Package: randomForestDrawer
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Interactive random forest model drawer
+Version: 0.0.1
+Authors@R: person("Dezso", "Burjan", email = "fireapex@gmail.com", role = c("aut", "cre"))
+Description: Reads a random forest model from a file, after that it processes and draws it.
+URL: https://github.com/burjandedes/randomForestDrawer
+Issues: https://github.com/burjandedes/randomForestDrawer/issues
+Depends: R (>= 3.4.1)
+Imports:
+    shiny,
+    visNetwork,
+    igraph,
+    dplyr
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
