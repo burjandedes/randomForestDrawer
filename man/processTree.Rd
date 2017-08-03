@@ -2,7 +2,7 @@
 % Please edit documentation in R/processTree.R
 \name{processTree}
 \alias{processTree}
-\title{Convert a tree to a graph}
+\title{Converts a tree to a graph}
 \usage{
 processTree(treeGraphList, rawTreeDataFrame, defaultColor = "blue",
   defaultShape = "square", classes = NULL, colors = NULL, shapes = NULL)
@@ -29,11 +29,10 @@ A list which contains the new and a previous graphs.
 Processes and converts a single tree of a random forest to an igraph graph.
 }
 \details{
-With this function we can convert a tree of a random forest model to an
-igraph graph.
-At first we process the raw tree data and make a graph data from it.
-After that we add properties to the graph.
-And finally we append the new graph to a list which contains igraph graphs.
+With this function you can convert a tree of a random forest model to an
+igraph graph. At first we process the raw tree data and make a graph data
+from it. After that we add properties to the graph. And finally we append
+the new graph to a list which contains igraph graphs.
 }
 \examples{
 \dontrun{

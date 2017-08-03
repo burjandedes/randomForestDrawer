@@ -1,12 +1,11 @@
-#' Convert a tree to a graph
+#' Converts a tree to a graph
 #'
 #' Processes and converts a single tree of a random forest to an igraph graph.
 #'
-#' With this function we can convert a tree of a random forest model to an
-#' igraph graph.
-#' At first we process the raw tree data and make a graph data from it.
-#' After that we add properties to the graph.
-#' And finally we append the new graph to a list which contains igraph graphs.
+#' With this function you can convert a tree of a random forest model to an
+#' igraph graph. At first we process the raw tree data and make a graph data
+#' from it. After that we add properties to the graph. And finally we append
+#' the new graph to a list which contains igraph graphs.
 #' @param treeGraphList A list which contains the graphs.
 #' @param rawTreeDataFrame A tree, which created with the randomForest::getTree function.
 #' @param defaultColor The default color of the nodes.
@@ -17,7 +16,7 @@
 #'
 #' @return A list which contains the new and a previous graphs.
 #'
-#' @import dplyr
+#' @importFrom dplyr %>%
 #' @examples
 #' \dontrun{
 #' # Model must be a valid rf model with keep.forest=TRUE
@@ -59,7 +58,7 @@ processTree <- function(treeGraphList,
            right.daughter, split.var, split.point, status, prediction")
   }
 
-  # Convert the split values to numeric
+  # Converts the split values to numeric
   rawTreeDataFrame$split.point <- as.numeric(as.character(rawTreeDataFrame$split.point))
 
   # Make leaf node's split point NA
@@ -84,25 +83,39 @@ processTree <- function(treeGraphList,
   temp[,2] <- as.character(temp[,2])
 
   # Make the new split label
-  temp[is.na(temp$split.var),]$split.var <- as.character(temp$prediction[is.na(temp$split.var)])
+  temp[is.na(temp$split.var),]$split.var <- temp$prediction[is.na(temp$split.var)]
   temp[!is.na(temp$split.point),]$split.var <- paste0(temp[!is.na(temp$split.point),]$split.var,
-                                                      "<=", temp[!is.na(temp$split.point),]$split.point)
+                                                      "<=",
+                                                      temp[!is.na(temp$split.point),]$split.point)
 
   # Get color for the nodes
-  temp <- cbind(temp, sapply(temp$prediction,
-                             getColorForClass,
-                             defaultColor = defaultColor,
-                             classes = classes,
-                             colors = colors))
+  temp <- cbind(
+    temp,
+    sapply(
+      temp$prediction,
+      getColorForClass,
+      defaultColor = defaultColor,
+      classes = classes,
+      colors = colors
+    )
+  )
+  # Rename and convert column
   colnames(temp)[ncol(temp)] <- "color"
   temp$color <- as.character(temp$color)
 
   # Get shapes for the nodes
-  temp <- cbind(temp, sapply(temp$prediction,
-                             getShapeForClass,
-                             defaultShape = defaultShape,
-                             classes = classes,
-                             shapes = shapes))
+  temp <- cbind(
+    temp,
+    sapply(
+      temp$prediction,
+      getShapeForClass,
+      defaultShape = defaultShape,
+      classes = classes,
+      shapes = shapes
+      )
+  )
+
+  # Rename and convert column
   colnames(temp)[ncol(temp)] <- "shape"
   temp$shape <- as.character(temp$shape)
 
