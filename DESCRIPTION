@@ -10,7 +10,8 @@ Imports:
     shiny,
     visNetwork,
     igraph,
-    dplyr
+    dplyr,
+    randomForest
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
