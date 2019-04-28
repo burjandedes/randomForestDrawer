@@ -1,14 +1,14 @@
 # Random Forest Drawer
 
 ## Preface
-Welcome on my Github page. In this repository you can find an R package, which
+Welcome on my Github page. In this repository, you can find an R package, which
 contains a Shiny module, which can draw a Random Forest model created in R.
 This project uses the [shiny](https://shiny.rstudio.com/), the 
 [visNetwork](http://datastorm-open.github.io/visNetwork/), the 
-[iGraph](http://igraph.org/), the [randomForest](https://cran.r-project.org/web/packages/randomForest/index.html)
+[iGraph](http://igraph.org/), the [randomForest](https://cran.r-project.org/web/packages/randomForest/index.html),
 and the [dplyr](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
 packages.
-This drawer is interactive so you can navigate in the canvas and drag the nodes 
+This drawer is interactive, so you can navigate in the canvas and drag the nodes 
 horizontally.
 
 ## Example
@@ -16,8 +16,8 @@ In the */inst/examples/* folder, you can find an example, that shows you
 the usage of this package and an example random forest model too.
 
 ## Random Forest
-In order to get the trees you need, you must add the parameter **keep.forest = TRUE**
-to you fit function.
+To get the trees you need, you must add the parameter **keep.forest = TRUE**
+to your fit function.
 
 ## Data
 For now this project can read only *.rf.RDS* files
