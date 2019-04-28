@@ -22,3 +22,8 @@ to you fit function.
 ## Data
 For now this project can read only *.rf.RDS* files. For additional details see this
 [page](https://stats.stackexchange.com/questions/143943/applying-randomforest-algorithm-fit-on-new-data-without-recomputing-the-fit), it will shows you how the **saveRDS** function works.
+
+```saveRDS(fit, "my-fitted-rf.rds")```
+
+## or via save
+```save(fit, "my-fitted-rf.rda")```
