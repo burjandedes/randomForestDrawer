@@ -20,10 +20,10 @@ In order to get the trees you need, you must add the parameter **keep.forest = T
 to you fit function.
 
 ## Data
-For now this project can read only *.rf.RDS* files. For additional details see this
-[page](https://stats.stackexchange.com/questions/143943/applying-randomforest-algorithm-fit-on-new-data-without-recomputing-the-fit), it will shows you how the **saveRDS** function works.
-
+For now this project can read only *.rf.RDS* files
+Use one of the following functions:
 ```saveRDS(fit, "my-fitted-rf.rds")```
-
-## or via save
+or
 ```save(fit, "my-fitted-rf.rda")```
+
+Source: [page](https://stats.stackexchange.com/questions/143943/applying-randomforest-algorithm-fit-on-new-data-without-recomputing-the-fit)
